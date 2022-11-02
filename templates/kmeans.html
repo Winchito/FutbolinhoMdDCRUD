@@ -1,0 +1,103 @@
+{% extends 'navegation.html' %} 
+
+{% block body %}
+
+<!-- page content -->
+<div class="right_col" role="main">
+    <!-- top tiles -->
+    <div class="row" style="display: inline-block;">
+        <div class="tile_count"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>KMeans</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="x_panel">
+                        
+
+                                <form action="/EKMeans" method="POST">
+                                    <label for="variable1">Primera Variable</label>
+                                    
+                                    <select name="variable1" id="variable1">
+                                        <option value="Clasificacion">Clasificacion</option>
+                                        <option value="Altura_Jugador">Altura Jugador</option>
+                                        <option value="Peso_Jugador">Peso Jugador</option>
+                                        <option value="Pie_Dominante">Pie_Dominante</option>
+                                        <option value="Edad">Edad</option>
+                                        <option value="Control_Balon">Control_Balon</option>
+                                        <option value="Posicion_Ataque">Posicion Ataque</option>
+                                        <option value="Pase_Corto">Pase Corto</option>
+                                        <option value="Pase_Largo">Pase Largo</option>
+                                        <option value="Velocidad">Velocidad</option>
+                                        <option value="Stamina">Stamina</option>
+                                        <option value="Agilidad">Agilidad</option>
+                                        <option value="Cabezazo">Cabezazo</option>
+                                        <option value="Potencia_Disparo">Potencia Disparo</option>
+                                        <option value="Remate">Remate</option>
+                                        <option value="Disparo_Largo">Disparo Largo</option>
+                                        <option value="Penaltis">Penaltis</option>
+                                    </select>
+                                    <label for="variable2">Segunda variable:</label>
+                                    <select name="variable2" id="variable2">
+                                    <option value="Clasificacion">Clasificacion</option>
+                                    <option value="Altura_Jugador">Altura Jugador</option>
+                                    <option value="Peso_Jugador">Peso Jugador</option>
+                                    <option value="Pie_Dominante">Pie_Dominante</option>
+                                    <option value="Edad">Edad</option>
+                                    <option value="Control_Balon">Control_Balon</option>
+                                    <option value="Posicion_Ataque">Posicion Ataque</option>
+                                    <option value="Pase_Corto">Pase Corto</option>
+                                    <option value="Pase_Largo">Pase Largo</option>
+                                    <option value="Velocidad">Velocidad</option>
+                                    <option value="Stamina">Stamina</option>
+                                    <option value="Agilidad">Agilidad</option>
+                                    <option value="Cabezazo">Cabezazo</option>
+                                    <option value="Potencia_Disparo">Potencia Disparo</option>
+                                    <option value="Remate">Remate</option>
+                                    <option value="Disparo_Largo">Disparo Largo</option>
+                                    <option value="Penaltis">Penaltis</option>
+                                    </select>
+                                    <label for="NumCentroides">Numero de Centroides:</label>
+                                    <select name="NumCentroides" id="NumCentroides">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    </select>
+                                    <input type="submit" value="Ejecutar">
+                                </form>
+                            </div>
+                                {% with messages = get_flashed_messages() %}
+                                {% if messages %} 
+                                {% for mensaje in messages %}
+                               <div id="mensaje-success" role="alert" class="center"><img src="{{ mensaje }}" height="500px" width="800px"> </div> 
+                               {% endfor %} 
+                               {% endif %} 
+                               {% endwith %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

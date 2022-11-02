@@ -1,0 +1,318 @@
+{% extends 'navegation.html' %}
+
+{% block body %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+
+  <!-- page content -->
+  <div class="right_col" role="main">
+    <!-- top tiles -->
+    <div class="row" style="display: inline-block;">
+      <div class="tile_count"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Dashboard</h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li>
+                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+
+              <li>
+                <a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="x_content">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="x_panel">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus-circle"></i>Nuevo</button>
+
+                  {% with messages = get_flashed_messages() %} 
+                  {% if messages %} 
+                  {% for mensaje in messages %}
+
+                  <div id="mensaje-success" class="alert alert-succes alert-dismissible fade show" role="alert">
+                    <strong>{{mensaje}}</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
+                  </div>
+
+                  {% endfor %}
+                  {% endif %}
+                  {% endwith %}
+
+                </div>
+
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Jugadores</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="card-box table-responsive">
+                          <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap no-footer">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                {% block content %}
+                                <table id="datatable" class="table table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable_info">
+                                  <thead>
+                                    <tr role="row">
+                                      <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 255px;">Acción</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 387px;">ID</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 199px;">Nombre</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 108px;">Clasificacion</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 387px;">Altura_Jugador</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 199px;">Peso_Jugador</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 108px;">Pie_Dominante</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 387px;">Edad</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 199px;">Control_Balon</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 108px;">Posicion_Ataque</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 387px;">Pase_Corto</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 199px;">Pase_Largo</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 108px;">Velocidad</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 387px;">Stamina</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 199px;">Agilidad</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 108px;">Cabezazo</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 387px;">Potencia_Disparo</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 199px;">Remate</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 108px;">Disparo_Largo</th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 108px;">Penaltis</th>
+                                    </tr>
+                                  </thead>
+                                  {% for empleado in empleados %}
+                                  <tbody>
+                                    <tr role="row" class="odd">
+                                      <td><button type="button"  data-id="{{ empleado.0 }}" class="employesinfo btn btn-round btn-success"><i class="fa fa-edit"></i></button></td>
+                                      <th class="sorting_1">{{ empleado.0 }}</th>
+                                      <th>{{ empleado.1 }}</th>
+                                      <th>{{ empleado.2 }}</th>
+                                      <th>{{ empleado.3 }}</th>
+                                      <th>{{ empleado.4 }}</th>
+                                      <th>{{ empleado.5 }}</th>
+                                      <th>{{ empleado.6 }}</th>
+                                      <th>{{ empleado.7 }}</th>
+                                      <th>{{ empleado.8 }}</th>
+                                      <th>{{ empleado.9 }}</th>
+                                      <th>{{ empleado.10 }}</th>
+                                      <th>{{ empleado.11 }}</th>
+                                      <th>{{ empleado.12 }}</th>
+                                      <th>{{ empleado.13 }}</th>
+                                      <th>{{ empleado.14 }}</th>
+                                      <th>{{ empleado.15 }}</th>
+                                      <th>{{ empleado.16 }}</th>
+                                      <th>{{ empleado.17 }}</th>
+                                      <th>{{ empleado.18 }}</th>
+                                    </tr>
+                                  {% endfor %}
+                                    
+                                  </tbody>
+                                </table>
+                                {% endblock %}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /page content -->
+
+
+
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Registro de empleado</h4>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <form id="insert_form" method="POST" action="/addemployes">
+
+          <div class="modal-body">
+            <table id="newregistro" class="table table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable_info">
+              <tr>
+                <th>ID</th>
+                <th><input type="text" name="ID" id="ID"
+                        class="form-control" required="true"></th>
+            </tr>
+              <tr>
+                  <th>Nombre</th>
+                  <th><input type="text" name="Nombre" id="Nombre"
+                          class="form-control" required="true"></th>
+              </tr>
+              <tr>
+                  <th>Clasificacion</th>
+                  <th><input type="text" name="Clasificacion" id="Clasificacion"
+                          class="form-control" required="true"></th>
+              </tr>
+              <tr>
+                <th>Altura_Jugador</th>
+                <th><input type="text" name="Altura_Jugador" id="Altura_Jugador"
+                        class="form-control" required="true"></th>
+            </tr>
+            <tr>
+              <th>Peso_Jugador</th>
+              <th><input type="text" name="Peso_Jugador" id="Peso_Jugador"
+                      class="form-control" required="true"></th>
+          </tr>
+          <tr>
+            <th>Pie_Dominantes</th>
+            <th><input type="text" name="Pie_Dominante" id="Pie_Dominante"
+                    class="form-control" required="true"></th>
+        </tr>
+        <tr>
+          <th>Edad</th>
+          <th><input type="text" name="Edad" id="Edad"
+                  class="form-control" required="true"></th>
+      </tr>
+      <tr>
+        <th>Control_Balon</th>
+        <th><input type="text" name="Control_Balon" id="Control_Balon"
+                class="form-control" required="true"></th>
+    </tr>
+    <tr>
+      <th>Posicion_Ataque</th>
+      <th><input type="text" name="Posicion_Ataque" id="Posicion_Ataque"
+              class="form-control" required="true"></th>
+  </tr>
+  <tr>
+    <th>Pase_Corto</th>
+    <th><input type="text" name="Pase_Corto" id="Pase_Corto"
+            class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Pase_Largo</th>
+  <th><input type="text" name="Pase_Largo" id="Pase_Largo"
+          class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Velocidad</th>
+  <th><input type="text" name="Velocidad" id="Velocidad"
+          class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Stamina</th>
+  <th><input type="text" name="Stamina" id="Stamina"
+          class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Agilidad</th>
+  <th><input type="text" name="Agilidad" id="Agilidad"
+          class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Cabezazo</th>
+  <th><input type="text" name="Cabezazo" id="Cabezazo"
+          class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Potencia_Disparo</th>
+  <th><input type="text" name="Potencia_Disparo" id="Potencia_Disparo"
+          class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Remate</th>
+  <th><input type="text" name="Remate" id="Remate"
+          class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Disparo_Largo</th>
+  <th><input type="text" name="Disparo_Largo" id="Disparo_Largo"
+          class="form-control" required="true"></th>
+</tr>
+<tr>
+  <th>Penaltis</th>
+  <th><input type="text" name="Penaltis" id="Penaltis"
+          class="form-control" required="true"></th>
+</tr>
+          </table>
+
+          </div>
+          <div class="modal-footer">
+            <button type="submit" id="Insertar" class="btn btn-primary">Guardar</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  
+<script type="text/javascript">
+  $(document).ready(function () {        
+
+      $("#mensaje-success").fadeTo(3000, 500).slideUp(500, function () {
+          $("#mensaje-success").slideUp(500);
+      });
+
+      $('.employesinfo').click(function () {
+          var id = $(this).data('id');
+          $.ajax({
+              url: '/viewemployes',
+              type: 'POST',
+              data: {ID: id},
+              success: function (data) {
+                  $('.modal-cuerpo').html(data);
+                  $('.modal-cuerpo').append(data.htmlresponse);
+                  $('#viewField').modal('show');
+              }
+          });
+      });
+
+
+  });
+</script>
+
+
+<div class="modal fade bs-example-modal-lg" id="viewField" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Registro de empleado</h4>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <div class="modal-cuerpo">
+
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
